@@ -1,0 +1,70 @@
+{
+ "_note": "Extra ATS boards to poll every day, on top of the ones feed.py discovers from Simplify URLs of AV / robotics companies. ats = greenhouse | lever | ashby | workday. Workday slug = tenant/wdN/site (from a URL like https://aptiv.wd5.myworkdayjobs.com/aptiv_careers). To add a company, add one line here.",
+ "boards": [
+  {
+   "ats": "greenhouse",
+   "slug": "motional",
+   "company": "Motional"
+  },
+  {
+   "ats": "greenhouse",
+   "slug": "nuro",
+   "company": "Nuro"
+  },
+  {
+   "ats": "greenhouse",
+   "slug": "maymobility",
+   "company": "May Mobility"
+  },
+  {
+   "ats": "greenhouse",
+   "slug": "stackav",
+   "company": "Stack AV"
+  },
+  {
+   "ats": "greenhouse",
+   "slug": "torcrobotics",
+   "company": "Torc Robotics"
+  },
+  {
+   "ats": "greenhouse",
+   "slug": "apptronik",
+   "company": "Apptronik"
+  },
+  {
+   "ats": "lever",
+   "slug": "zoox",
+   "company": "Zoox"
+  },
+  {
+   "ats": "lever",
+   "slug": "waabi",
+   "company": "Waabi"
+  },
+  {
+   "ats": "ashby",
+   "slug": "skydio",
+   "company": "Skydio"
+  },
+  {
+   "ats": "ashby",
+   "slug": "aurora-operations-inc",
+   "company": "Aurora Innovation"
+  },
+  {
+   "ats": "ashby",
+   "slug": "regent",
+   "company": "REGENT"
+  },
+  {
+   "ats": "greenhouse",
+   "slug": "flyzipline",
+   "company": "Zipline"
+  },
+  {
+   "ats": "greenhouse",
+   "slug": "wing",
+   "company": "Wing"
+  }
+ ]
+}
