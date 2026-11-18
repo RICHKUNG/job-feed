@@ -296,10 +296,19 @@ def summer27(x):
 
 def build(simplify, vansh, ats_rows, window_days, now):
     since = now.timestamp() - window_days * 86400
-    s_urls = {ukey(x.get("url")) for x in simplify}
-    s_ids = set().union(*(url_ids(x.get("url")) for x in simplify)) if simplify else set()
+
+    def live(x):  # same test as the stale_or_hidden skip below
+        co = x.get("company_name") or ""
+        t = max(x.get("date_posted") or 0, x.get("date_updated") or 0)
+        return x.get("is_visible", True) and t >= since and bool(x.get("active") or AV_CO.search(co) or ROBOT_CO.search(co))
+
+    # Dedupe vanshb03 / ATS rows only against Simplify rows the feed keeps: a stale or wrongly "closed" Simplify
+    # copy must not hide the live posting on the company's own board (2026-11-17: Zipline Electrical Engineer Intern).
+    s_live = [x for x in simplify if live(x)]
+    s_urls = {ukey(x.get("url")) for x in s_live}
+    s_ids = set().union(*(url_ids(x.get("url")) for x in s_live)) if s_live else set()
     s_titles = collections.defaultdict(set)
-    for x in simplify:
+    for x in s_live:
         s_titles[norm(x.get("company_name"))].add(norm(x.get("title")))
 
     def in_simplify(x):
